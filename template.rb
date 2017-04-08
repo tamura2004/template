@@ -29,54 +29,27 @@ gem_group :development, :test do
   gem "factory_girl_rails"
   gem "rails-controller-testing"
   gem "pry-rails"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 run "bundle install"
 
-# after_bundle do
+generate "simple_form:install", "--bootstrap"
+generate "bootstrap:install", "static"
+generate "bootstrap:layout", "application"
+generate "rspec:install"
+generate "rails_admin:install"
 
-  generate "simple_form:install", "--bootstrap"
-  generate "bootstrap:install", "static"
-  generate "bootstrap:layout", "application"
-
-  generate :model, "server number name cpu memory"
-  generate :model, "disk name size:integer server:references"
-  generate :model, "order server:references reception_date:date start_date:date"
-
-  inject_into_file "app/models/server.rb", before: "end" do
-    "  has_many :disks\n  has_many :orders\n"
-  end
-
-  inject_into_file "config/database.yml", after: "development:" do
-    "\n  username: tamura\n  password: tamura"
-  end
-
-  # inject_into_file "app/assets/stylesheets/application.css", after: " *= require_tree ." do
-  #   "\n *= require rails_bootstrap_forms"
-  # end
-
-  run "rails db:drop"
-  run "rails db:create"
-  run "rails db:migrate"
-
-  # generate "bootstrap:themed", "Servers", "--force"
-  # generate "bootstrap:themed", "Disks", "--force"
-  # generate "bootstrap:themed", "Orders", "--force"
-
-  run "sed -i -e '/error_span/d' app/views/**/*.slim"
-  run "sed -i -e '/apple-touch-icon/d' app/views/**/*.slim"
-  run "sed -i -e '/favicon.ico/d' app/views/**/*.slim"
-  run "sed -i -e 's/human.pluralize.titleize/human.titleize/g' app/views/**/*.slim"
-
-  generate "rails_admin:install"
-  generate :i18n, "ja"
-
-  run "rm app/assets/stylesheets/scaffolds.scss"
-  run "rm app/views/layouts/application.html.erb"
-
-  # route "root to: 'servers#index'"
-  run "rails s"
-# end
+append_file ".rspec", "--format documentation"
 
 
+inject_into_file "config/database.yml", after: "default: &default" do
+  "\n  username: tamura\n  password: tamura"
+end
 
+run "rails db:environment:set RAILS_ENV=development"
+run "rails db:drop"
+run "rails db:create"
+
+run "rails app:template LOCATION=../sample_application.rb"

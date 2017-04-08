@@ -1,0 +1,2 @@
+class ServerType < ApplicationRecord
+end
