@@ -40,6 +40,7 @@ generate "bootstrap:install", "static"
 generate "bootstrap:layout", "application"
 generate "rspec:install"
 generate "rails_admin:install"
+generate "annotate:install"
 
 append_file ".rspec", "--format documentation"
 
