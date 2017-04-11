@@ -1,9 +1,9 @@
 # sample application
 
-generate :model, :headquarter, "number name"
-generate :model, :division, "number name headquarter:references"
-generate :model, :group, "number name division:references"
-generate :model, :job, "number name"
+generate :model, :headquarter, "name"
+generate :model, :division, "name headquarter:references"
+generate :model, :group, "name division:references"
+generate :model, :job, "name"
 generate :model, :user, "number name job:references group:references"
 generate :model, :service, "number name group:references"
 generate :model, :software, "name version edition"

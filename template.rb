@@ -21,6 +21,8 @@ gem "rails_admin"
 gem "rails_admin-i18n"
 gem "i18n_generators"
 
+gem "inum"
+
 gem_group :development, :test do
   gem "spring-commands-rspec"
   gem "annotate"
@@ -43,7 +45,6 @@ generate "rails_admin:install"
 generate "annotate:install"
 
 append_file ".rspec", "--format documentation"
-
 
 inject_into_file "config/database.yml", after: "default: &default" do
   "\n  username: tamura\n  password: tamura"

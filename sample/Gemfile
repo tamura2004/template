@@ -72,6 +72,7 @@ gem 'simple_form'
 gem 'rails_admin'
 gem 'rails_admin-i18n'
 gem 'i18n_generators'
+gem "unindent"
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'annotate'
