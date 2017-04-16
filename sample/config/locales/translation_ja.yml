@@ -1,0 +1,74 @@
+ja:
+  activerecord:
+    models:
+      cpu_memory_price: CPUのメモリ価格  #g
+      disk: "ディスク"  #g
+      disk_type: "ディスクの種類"  #g
+      install: "インストール"  #g
+      order: "注文"  #g
+      resource: "リソース"  #g
+      server: "サーバ"  #g
+      server_info: "サーバー情報"  #g
+      service: "サービス"  #g
+      software: "ソフトウェア"  #g
+      user: "ユーザー"  #g
+
+    attributes:
+      cpu_memory_price:
+        cpu: CPU  #g
+        memory: "メモリ"  #g
+        price: "価格"  #g
+
+      disk:
+        disk_type: :activerecord.models.disk_type  #g
+        resource: :activerecord.models.resource  #g
+        sequence_number: "シーケンス番号"  #g
+        size: "サイズ"  #g
+
+      disk_type:
+        name: "名"  #g
+
+      install:
+        server: :activerecord.models.server  #g
+        software: :activerecord.models.software  #g
+
+      order:
+        reception_date: "受付日"  #g
+        server: :activerecord.models.server  #g
+        start_date: "開始日"  #g
+        user: :activerecord.models.user  #g
+
+      resource:
+        cpu_memory_price: :activerecord.models.cpu_memory_price  #g
+        end_date: "終了日"  #g
+        server: :activerecord.models.server  #g
+        start_date: "開始日"  #g
+        status: "状態"  #g
+
+      server:
+        hostname: "ホスト名"  #g
+        name: "名"  #g
+        sequence_number: "シーケンス番号"  #g
+        server_type: "サーバーの種類"  #g
+        service: :activerecord.models.service  #g
+
+      server_info:
+        account: "アカウント"  #g
+        server: :activerecord.models.server  #g
+        startup: "起動"  #g
+
+      service:
+        group: "グループ"  #g
+        name: "名"  #g
+        number: "数"  #g
+
+      software:
+        edition: "版"  #g
+        name: "名"  #g
+        version: "バージョン"  #g
+
+      user:
+        group: "グループ"  #g
+        job: "ジョブ"  #g
+        name: "名"  #g
+        number: "数"  #g

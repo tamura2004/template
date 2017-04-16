@@ -1,5 +1,0 @@
-class <%= @name.camelize %>Types < Inum::Base
-<% @args.each_with_index do |arg, i| -%>
-  define :<%= arg.upcase %>, <%= i %>
-<% end -%>
-end

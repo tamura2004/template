@@ -22,6 +22,7 @@ gem "rails_admin-i18n"
 gem "i18n_generators"
 
 gem "inum"
+gem "inum_types", git: "https://github.com/tamura2004/inum_types.git"
 
 gem_group :development, :test do
   gem "spring-commands-rspec"
